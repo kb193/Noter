@@ -1,0 +1,31 @@
+﻿/*button {
+    position: relative;
+}
+
+
+button i {
+    display: none;
+}
+
+
+    button:hover i {
+        display: block;
+        position: absolute;
+        top: 0px;
+        right: 5px;
+        font-size: 24px;
+        animation-name: FadeIn;
+        animation-duration: 0.3s;
+        transition-timing-function: linear;
+    }
+*/
+
+/*@keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}*/

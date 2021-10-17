@@ -1,0 +1,83 @@
+﻿@page "/"
+@using Noter.BlazorApp.Components
+@using Noter.BlazorApp.Services
+@using Notes.Domain.Interfaces
+@using Notes.Domain
+
+
+<div class="p-5">
+
+    <div class="container-fluid">
+        <div class="row gx-1">
+            <div class="col note-col mx-1">
+                <h1 class="d-flex justify-content-center py-2 border-none">To Do</h1>
+                <div class="d-flex flex-wrap">
+                    <button class="note shadow-lg rounded m-2 p-2" @onclick=@AddNoteClicked>
+                        <i class="bi bi-plus-square"></i>
+                        Add Note
+                    </button>
+
+                    @foreach (var note in _notes.Where(x => x.Started == false & x.Completed == false))
+                    {
+                        <NotePreview note="@note" OnPreviewClicked=@NotePreviewClicked />
+                    }
+                </div>
+            </div>
+            <div class="col note-col mx-1">
+                <h1 class="d-flex justify-content-center py-2 border-none">In Progress</h1>
+                @foreach (var note in _notes.Where(x => x.Started == true & x.Completed == false))
+                {
+                    <NotePreview note="@note" OnPreviewClicked=@NotePreviewClicked />
+                }
+            </div>
+            <div class="col note-col mx-1">
+                <h1 class="d-flex justify-content-center py-2 border-none">Completed</h1>
+                @foreach (var note in _notes.Where(x => x.Completed == true))
+                {
+                    <NotePreview note="@note" OnPreviewClicked=@NotePreviewClicked />
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Inject]
+    private IUnitOfWork _unitOfWork { get; set; }
+
+    [Inject]
+    private IRefreshService _refreshService { get; set; }
+
+    [Inject]
+    private Services.IModalService _modal { get; set; }
+
+    private List<Domain.Note> _notes { get; set; }
+
+    protected override void OnInitialized()
+    {
+        _notes = _unitOfWork.Notes.GetAll().ToList();
+
+        _refreshService.RefreshRequested += RefreshState;
+    }
+
+    public async Task AddNoteClicked()
+    {
+        var result = await _modal.Show<Note>("Add Note").Result;
+
+        if (result.Cancelled) return;
+
+        _notes.Add(_unitOfWork.Notes.GetById((int)result.Data));
+    }
+
+    public async Task NotePreviewClicked(int id)
+    {
+        await _modal.Show<Note>("Edit Note", id).Result;
+    }
+
+    public void RefreshState()
+    {
+        _notes = _unitOfWork.Notes.GetAll().ToList();
+
+        this.StateHasChanged();
+    }
+    }

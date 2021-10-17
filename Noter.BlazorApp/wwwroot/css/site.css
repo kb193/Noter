@@ -1,0 +1,75 @@
+@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+
+
+@font-face {
+    font-family: FrenteH1;
+    src: url(/fonts/FrenteH1-Regular.otf);
+}
+
+body {
+    background-image: url(../images/so-white.png);
+}
+
+.container-fluid {
+}
+
+.note {
+    height: 172px;
+    width: 172px;
+    background: white;
+    font-size: 32px
+}
+
+button {
+    position: relative;
+}
+
+
+    button i {
+        display: none;
+    }
+
+
+    button:hover i {
+        display: block;
+        position: absolute;
+        top: 0px;
+        right: 5px;
+        font-size: 24px;
+        animation-name: FadeIn;
+        animation-duration: 0.3s;
+        transition-timing-function: linear;
+    }
+
+.note-col {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    font-family: FrenteH1;
+}
+
+.row {
+    height: 80vh;
+}
+
+.preview {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.navbar-brand {
+    font-size: 32px;
+    font-weight: bold;
+    font-family: FrenteH1;
+    background: none;
+}
+
+@keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,102 @@
+﻿@using Noter.Domain
+@using Notes.Domain.Interfaces
+@using Noter.BlazorApp.Services
+
+
+
+<EditForm Model="@AddNote" OnValidSubmit="@ValidFormSubmitted">
+    <div class="mb-3">
+        <label class="form-label">Title</label>
+        <InputText @bind-Value=AddNote.Title class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Body</label>
+        <textarea class="form-control" rows="10" cols="12" @bind=AddNote.Body></textarea>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Input date</label>
+        <InputDate @bind-Value=AddNote.Created class="form-control" />
+    </div>
+
+    <div class="d-flex">
+        <button type="submit" class="btn btn-outline-primary">Save</button>
+        @if (AddNote.Id > 0)
+        {
+            <button type="button" class="btn btn-outline-danger px-2 mx-2" @onclick="DeleteNote">Delete</button>
+            @if (AddNote.Started)
+            {
+                <button type="button" class="btn btn-outline-success ms-auto" @onclick="CompleteNote">Complete</button>
+            }
+            else
+            {
+                <button type="button" class="btn btn-outline-success ms-auto" @onclick="StartNote">Start</button>
+            }
+        }
+    </div>
+</EditForm>
+
+@code {
+    [Inject]
+    public IUnitOfWork _unitOfWork { get; set; }
+
+    public Domain.Note AddNote { get; set; }
+
+    [CascadingParameter]
+    BlazoredModalInstance ModalInstance { get; set; }
+
+    [Inject]
+    private IRefreshService _refreshService { get; set; }
+
+    [Parameter]
+    public int Id { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await base.OnParametersSetAsync();
+
+        if (Id > 0)
+        {
+            AddNote = _unitOfWork.Notes.GetById(Id);
+        }
+        else
+        {
+            AddNote = new();
+        }
+    }
+
+    void ValidFormSubmitted(EditContext editContext)
+    {
+        if (Id == 0)
+        {
+            _unitOfWork.Notes.Add(AddNote);
+        }
+        _unitOfWork.Complete();
+
+        ModalInstance.CloseAsync(ModalResult.Ok<int>(AddNote.Id));
+    }
+
+    public async Task CompleteNote()
+    {
+        AddNote.Completed = true;
+        _unitOfWork.Complete();
+        await ModalInstance.CloseAsync();
+    }
+
+    public async Task StartNote()
+    {
+        AddNote.Started = true;
+        _unitOfWork.Complete();
+        await ModalInstance.CloseAsync();
+
+    }
+
+    public async Task DeleteNote()
+    {
+        _unitOfWork.Notes.Remove(AddNote);
+        _unitOfWork.Complete();
+
+        _refreshService.CallRequestRefresh();
+
+        await ModalInstance.CloseAsync();
+    }
+}

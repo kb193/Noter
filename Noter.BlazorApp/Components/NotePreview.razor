@@ -1,0 +1,23 @@
+﻿
+
+<button class="p-2 m-2 note shadow-lg rounded preview" @onclick=NotePreviewClicked>
+    <i class="bi bi-pencil-square"></i>
+    @note.Title
+</button>
+
+
+@code {
+    [Parameter]
+    public Domain.Note note { get; set; }
+
+    [Parameter]
+    public EventCallback<int> OnPreviewClicked { get; set; }
+
+
+
+    public void NotePreviewClicked()
+    {
+        OnPreviewClicked.InvokeAsync(note.Id);
+
+    }
+}

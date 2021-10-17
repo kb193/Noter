@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31808.319
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Noter.Console", "Noter.Console\Noter.Console.csproj", "{BF1C9B54-1581-4CDE-833A-B4B306CF1D77}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Noter.Data", "Noter.Data\Noter.Data.csproj", "{5300049E-4530-4967-AD8F-D45C8B4E1C39}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notes.Domain", "Notes.Domain\Notes.Domain.csproj", "{460323ED-9D80-4D46-8E2F-D5AA53CAE9AD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Noter.API", "Noter.API\Noter.API.csproj", "{DD8D0995-DB29-43D1-887B-652D05CFD413}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Noter.Services", "Noter.Services\Noter.Services.csproj", "{EA834ECA-D1A1-4B59-814A-3E8A699F243A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Noter.BlazorApp", "Noter.BlazorApp\Noter.BlazorApp.csproj", "{6921029F-2534-4470-8CED-D7430E57E984}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF1C9B54-1581-4CDE-833A-B4B306CF1D77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF1C9B54-1581-4CDE-833A-B4B306CF1D77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF1C9B54-1581-4CDE-833A-B4B306CF1D77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF1C9B54-1581-4CDE-833A-B4B306CF1D77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5300049E-4530-4967-AD8F-D45C8B4E1C39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5300049E-4530-4967-AD8F-D45C8B4E1C39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5300049E-4530-4967-AD8F-D45C8B4E1C39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5300049E-4530-4967-AD8F-D45C8B4E1C39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{460323ED-9D80-4D46-8E2F-D5AA53CAE9AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{460323ED-9D80-4D46-8E2F-D5AA53CAE9AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{460323ED-9D80-4D46-8E2F-D5AA53CAE9AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{460323ED-9D80-4D46-8E2F-D5AA53CAE9AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD8D0995-DB29-43D1-887B-652D05CFD413}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD8D0995-DB29-43D1-887B-652D05CFD413}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD8D0995-DB29-43D1-887B-652D05CFD413}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD8D0995-DB29-43D1-887B-652D05CFD413}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA834ECA-D1A1-4B59-814A-3E8A699F243A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA834ECA-D1A1-4B59-814A-3E8A699F243A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA834ECA-D1A1-4B59-814A-3E8A699F243A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA834ECA-D1A1-4B59-814A-3E8A699F243A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6921029F-2534-4470-8CED-D7430E57E984}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6921029F-2534-4470-8CED-D7430E57E984}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6921029F-2534-4470-8CED-D7430E57E984}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6921029F-2534-4470-8CED-D7430E57E984}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {14D438E7-EA00-4140-9A6E-667C49C3CFE1}
+	EndGlobalSection
+EndGlobal
