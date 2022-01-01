@@ -9,7 +9,7 @@
 
     <div class="container-fluid">
         <div class="row gx-1">
-            <div class="col note-col mx-1">
+            <div class="col note-col m-1">
                 <h1 class="d-flex justify-content-center py-2 border-none">To Do</h1>
                 <div class="d-flex flex-wrap">
                     <button class="note shadow-lg rounded m-2 p-2" @onclick=@AddNoteClicked>
@@ -23,14 +23,14 @@
                     }
                 </div>
             </div>
-            <div class="col note-col mx-1">
+            <div class="col note-col m-1">
                 <h1 class="d-flex justify-content-center py-2 border-none">In Progress</h1>
                 @foreach (var note in _notes.Where(x => x.Started == true & x.Completed == false))
                 {
                     <NotePreview note="@note" OnPreviewClicked=@NotePreviewClicked />
                 }
             </div>
-            <div class="col note-col mx-1">
+            <div class="col note-col m-1">
                 <h1 class="d-flex justify-content-center py-2 border-none">Completed</h1>
                 @foreach (var note in _notes.Where(x => x.Completed == true))
                 {

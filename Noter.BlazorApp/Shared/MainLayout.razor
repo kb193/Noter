@@ -1,9 +1,6 @@
 ﻿@inherits LayoutComponentBase
 
 <PageTitle>Noter.BlazorApp</PageTitle>
-
-
-
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,14 +10,14 @@
                 <a class="navbar-brand" href="#"><i class="bi bi-dice-3 mx-2"></i>Noter</a>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <NavLink class="nav-link" href="" Match=@NavLinkMatch.All>Home</NavLink>
+                    </li>
+@*                    <li class="nav-item">
+                        <NavLink class="nav-link" href="/Dashboard">Dashboard</NavLink>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li>
+                        <NavLink class="nav-link" href="h" tabindex="-1">Disabled</NavLink>
+                    </li>*@
                 </ul>
             </div>
         </div>

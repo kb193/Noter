@@ -10,6 +10,11 @@ body {
     background-image: url(../images/so-white.png);
 }
 
+nav {
+    font-family: FrenteH1;
+    font-size: 24px
+}
+
 .container-fluid {
 }
 
@@ -62,6 +67,29 @@ button {
     font-weight: bold;
     font-family: FrenteH1;
     background: none;
+}
+
+.top-row {
+    height: 50px;
+}
+
+.active {
+    text-decoration: underline;
+}
+
+.col {
+    min-width: 190px;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+    max-width: 250px;
+    height: 80vh;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
 }
 
 @keyframes FadeIn {
